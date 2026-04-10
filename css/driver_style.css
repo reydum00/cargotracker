@@ -1,0 +1,910 @@
+/* ================= GLOBAL STYLES ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+}
+
+/* ================= GLOBAL STYLES END ===================== */
+
+
+
+
+/* ================= NAV BAR ============================== */
+
+.mobile-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #1f2c3d;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
+
+#menu-toggle-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-icon-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+.mobile-header-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-color: #1f2c3d;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.open {
+    transform: translateX(0%);
+}
+
+#sidebar-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sidebar-header {
+    padding: 24px 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0 15px;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    margin-bottom: 8px;
+}
+
+.nav-links a {
+    display: block;
+    text-decoration: none;
+    color: #dbe2ea;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 14px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #2a3a4e;
+}
+
+.nav-links a.active {
+    background-color: #3e4d61;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.logout-container {
+    padding: 15px 30px 30px 30px;
+}
+
+.logout-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* ================= NAV BAR END ============================ */
+
+
+
+
+
+
+
+
+
+/* ================= ANNOUNCEMENT ========================== */
+
+/* --- 4. Main Content (from Admin) --- */
+.main-content {
+    padding: 20px;
+    color: #333;
+}
+
+.main-content h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1f2c3d;
+}
+
+@media (min-width: 768px) {
+    .mobile-header {
+        display: none;
+    }
+
+    #sidebar-close-btn {
+        display: none;
+    }
+
+    .sidebar {
+        transform: translateX(0%);
+    }
+
+    .main-content {
+        margin-left: 260px;
+        padding: 30px;
+    }
+}
+
+/* --- 5. Page-Specific CSS (from driver_Announcement.html) --- */
+.notifications {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.notification {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-left: 5px solid #d1d5db;
+    /* Default border */
+}
+
+.notification h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2c3d;
+    margin-bottom: 10px;
+}
+
+.notification p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.notification small {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Matching Admin Colors for priority levels */
+
+.notification.low h2 {
+    color: #136aceff;
+}
+
+.notification.low {
+    border-left-color: #136aceff;
+    background-color: #fffcf5;
+}
+
+.notification.medium {
+    border-left-color: #27ae60;
+    background-color: #f6fff9;
+}
+
+.notification.medium h2 {
+    color: #27ae60;
+}
+
+
+
+.notification.high {
+    border-left-color: #f39c12;
+    background-color: #fff7f6;
+}
+
+.notification.high h2 {
+    color: #f39c12;
+}
+
+
+.notification.urgent {
+    border-left-color: #e74c3c;
+    background-color: #fff7f6;
+}
+
+.notification.urgent h2 {
+    color: #e74c3c;
+}
+
+.username-display {
+    font-size: 1rem;
+}
+
+/* ================= ANNOUNCEMENT END ========================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= ASSIGNED JOB ========================== */
+
+/* --- 4. Main Content (from Admin) --- */
+.main-content {
+    padding: 20px;
+    color: #333;
+}
+
+.main-content h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1f2c3d;
+}
+
+@media (min-width: 768px) {
+    .mobile-header {
+        display: none;
+    }
+
+    #sidebar-close-btn {
+        display: none;
+    }
+
+    .sidebar {
+        transform: translateX(0%);
+    }
+
+    .main-content {
+        margin-left: 260px;
+        padding: 30px;
+    }
+}
+
+/* --- 5. Page-Specific CSS (from driver_Assigned_Job.html) --- */
+.job-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    margin-bottom: 20px;
+    /* Added margin for list */
+}
+
+.job-card h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2c3d;
+    margin-bottom: 20px;
+}
+
+.job-card .job-label {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.username-display {
+    font-size: 1rem;
+}
+
+/* ================= ASSIGNED JOB END ========================== */
+
+
+
+
+
+
+
+
+
+
+
+/* ================= DELIVERY ========================== */
+  /* --- 4. Main Content (from Admin) --- */
+        .main-content {
+            padding: 20px;
+            color: #333;
+        }
+
+        .main-content h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1f2c3d;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-header {
+                display: none;
+            }
+
+            #sidebar-close-btn {
+                display: none;
+            }
+
+            .sidebar {
+                transform: translateX(0%);
+            }
+
+            .main-content {
+                margin-left: 260px;
+                padding: 30px;
+            }
+        }
+
+        /* --- 5. Page-Specific CSS (from driver_Delivery.html) --- */
+        .delivery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .table-wrapper {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            overflow-x: auto;
+        }
+
+        .delivery-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .delivery-table th,
+        .delivery-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .delivery-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .delivery-table tbody tr:hover {
+            background-color: #f4f7fa;
+        }
+
+        /* I removed the row-light/dark and am using :nth-child for a cleaner look */
+        .delivery-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .delivery-table tbody tr:nth-child(even):hover {
+            background-color: #f4f7fa;
+        }
+
+        .username-display {
+            font-size: 1rem;
+        }
+
+
+/* ================= DELIVERY END ========================== */
+
+
+
+
+
+
+
+
+
+
+
+/* ================= HOME ========================== */
+
+ /* --- 4. Main Content (from Admin) --- */
+        .main-content {
+            padding: 30px;
+            color: #333;
+        }
+
+        .main-content h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1f2c3d;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-header {
+                display: none;
+            }
+
+            #sidebar-close-btn {
+                display: none;
+            }
+
+            .sidebar {
+                transform: translateX(0%);
+            }
+
+            .main-content {
+                margin-left: 260px;
+                padding: 30px;
+            }
+        }
+
+        /* --- 5. NEW Dashboard Layout --- */
+        .dashboard-columns {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 992px) {
+            .dashboard-columns {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .dashboard-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            padding-bottom: 10px !important;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dashboard-card h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #1f2c3d;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* --- 6. Page-Specific CSS --- */
+
+        /* Job Card Styles */
+        .job-card-content .job-label {
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .job-card-content h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2c3d;
+            margin-bottom: 20px;
+        }
+
+        /* Stats Card Styles */
+        .stat-list {
+            list-style: none;
+        }
+
+        .stat-list li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .stat-list li:last-child {
+            border-bottom: none;
+        }
+
+        .stat-list li span {
+            color: #333;
+        }
+
+        .stat-list li strong {
+            color: #1f2c3d;
+            font-weight: 600;
+        }
+
+        /* Announcement Card Styles */
+        .notification {
+            border-left: 5px solid #e74c3c;
+            background-color: #fff7f6;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .notification h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        .notification p {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Quick Action Styles */
+        .quick-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            background-color: #d9534f;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .quick-btn:hover {
+            background-color: #c9302c;
+        }
+
+        .username-display {
+            font-size: 1rem;
+        }
+
+/* ================= HOME END ========================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= LOGS ========================== */
+
+ /* --- 4. Main Content (from Admin) --- */
+        .main-content {
+            padding: 20px;
+            color: #333;
+        }
+
+        .main-content h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1f2c3d;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-header {
+                display: none;
+            }
+
+            #sidebar-close-btn {
+                display: none;
+            }
+
+            .sidebar {
+                transform: translateX(0%);
+            }
+
+            .main-content {
+                margin-left: 260px;
+                padding: 30px;
+            }
+        }
+
+        /* --- 5. Page-Specific CSS --- */
+
+        /* Activity Log Styles */
+        .dashboard-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            /* Added space between cards */
+        }
+
+        .dashboard-card h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #1f2c3d;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .activity-log {
+            list-style: none;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 5px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f4f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .activity-details {
+            flex-grow: 1;
+        }
+
+        .activity-description {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .activity-description strong {
+            color: #1f2c3d;
+        }
+
+        .activity-timestamp {
+            font-size: 13px;
+            color: #6c757d;
+        }
+
+        /* Delivery Table Styles */
+        .delivery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .table-wrapper {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            overflow-x: auto;
+        }
+
+        .delivery-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .delivery-table th,
+        .delivery-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .delivery-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .delivery-table tbody tr:hover {
+            background-color: #f4f7fa;
+        }
+
+        .delivery-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .delivery-table tbody tr:nth-child(even):hover {
+            background-color: #f4f7fa;
+        }
+
+        .username-display {
+            font-size: 1rem;
+        }
+
+
+
+
+/* ================= LOGS END ========================== */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= RECORDS ========================== */
+
+
+ /* --- 4. Main Content (from Admin) --- */
+        .main-content {
+            padding: 20px;
+            color: #333;
+        }
+
+        .main-content h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1f2c3d;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-header {
+                display: none;
+            }
+
+            #sidebar-close-btn {
+                display: none;
+            }
+
+            .sidebar {
+                transform: translateX(0%);
+            }
+
+            .main-content {
+                margin-left: 260px;
+                padding: 30px;
+            }
+        }
+
+        /* --- 5. Page-Specific CSS (from driver_Delivery.html) --- */
+        .table-wrapper {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            overflow-x: auto;
+        }
+
+        .delivery-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .delivery-table th,
+        .delivery-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .delivery-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .delivery-table tbody tr:hover {
+            background-color: #f4f7fa;
+        }
+
+        .delivery-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .delivery-table tbody tr:nth-child(even):hover {
+            background-color: #f4f7fa;
+        }
+
+        .username-display {
+            font-size: 1rem;
+        }
+
+
+
+
+
+/* ================= RECORDS END ========================== */
+
+
+
+
+
+/* ================= ROUTES ========================== */
+
+
+
+
+
+
+
+
+
+
+/* ================= ROUTES END ========================== */

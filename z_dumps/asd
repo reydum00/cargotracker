@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="dispatchcss.css">
+
+</head>
+<body class="bg-[#0047ab] font-serif">
+    
+    <div class="flex">
+        <nav class="sticky max-lg:hidden top-0 text-[22px] flex flex-col bg-[#f5f5f5] max-w-[360px] h-[930px] pb-40 space-y-10 px-6">
+            <div class="logo mb-2">
+                <img class="picture mx-auto py-10 w-40" src="images/logo.png">
+            </div>
+            <div class="side-nav flex flex-col space-y-10 gap-y-4 text-[18px]">
+                <button class="hover:bg-gray-400 rounded-md">Dashboard</button>
+                <button class="hover:bg-gray-400 rounded-md">Dispatch</button>
+
+               <div>
+                <button onclick="this.nextElementSibling.classList.toggle('hidden')" 
+                        class="hover:bg-gray-400 rounded-md w-full">
+                    Delivery ▼
+                </button>
+                <div class="hidden text-[#000000] mt-2 rounded-md  ">
+                    <a class="block hover:bg-gray-400 ml-[60px] py-2 rounded cursor-pointer">Dispatch</a>
+                    <a class="block hover:bg-gray-400 ml-[60px] py-2 rounded cursor-pointer">Map</a>
+                </div>
+            </div>
+              
+                <button class="hover:bg-gray-400 rounded-md">Live Location</button>
+                <button class="hover:bg-gray-400 rounded-md">Announcement</button>
+                <button class="hover:bg-gray-400 rounded-md">Logs</button>
+                <button class="bg-red-700 w-40 mx-auto text-white rounded-md">Log out ⍈</button>
+            </div>
+        </nav>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+        <div class="header">
+            <h1>Dispatch Management</h1>
+            <button id="addBtn" class="add-btn">+ Add</button>
+        </div>
+
+        <!-- Active Drivers -->
+        <section>
+            <h2>Active Drivers</h2>
+            <div id="driversContainer" class="drivers">
+            <!-- Driver cards -->
+            </div>
+        </section>
+
+        <!-- Deliveries -->
+        <section class="deliveries">
+            <h2>Deliveries</h2>
+            <div class="deliveries-container">
+
+            <!-- Pendings -->
+            <div class="pending">
+                <h3>Pending (2)</h3>
+
+                <div class="delivery-card">
+                    <p class="title">Corp</p>
+                    <p>Jan sa tabi tabi</p>
+                    <p class="date">69pm</p>
+
+                    <div class="delivery-actions">
+                        <select>
+                            <option>Select Driver</option>
+                        </select>
+                        <button class="assign-btn">Assign</button>
+                    </div>
+
+                </div>
+
+                <div class="delivery-card">
+                    <p class="title">Corp</p>
+                    <p>Dun sa makati</p>
+                    <p class="date">2025-10-23 05:45 pm</p>
+                    
+                    <div class="delivery-actions">
+                        <select>
+                            <option>Select Driver</option>
+                        </select>
+                        <button class="assign-btn">Assign</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Assigned -->
+            <div class="assigned">
+                <h3>Assigned (1)</h3>
+                <div class="delivery-card">
+                <p class="title">Tech Solutions Inc</p>
+                <p>asdwaeq, aeasdwaeq</p>
+                <p class="date">2025-10-23 08:00 AM</p>
+                <p class="status">Assigned</p>
+                <button class="track-btn">Track ➧</button>
+                </div>
+            </div>
+            </div>
+        </section>
+        </main>
+    </div>
+
+    <!-- Modal Popup -->
+    <div id="driverModal" class="modal">
+        <div class="modal-content">
+        <h3>Add New Driver</h3>
+        <form id="driverForm">
+            <label>Driver Name</label>
+            <input type="text" id="driverName" required>
+
+            <label>Date</label>
+            <input type="date" id="driverDate" required>
+
+            <label>Location</label>
+            <input type="text" id="driverLocation" required>
+
+            <label>Truck Plate</label>
+            <input type="text" id="driverTruck" required>
+
+            <div class="modal-buttons">
+            <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
+            <button type="submit" class="save-btn">Save</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    const addBtn = document.getElementById("addBtn");
+    const modal = document.getElementById("driverModal");
+    const cancelBtn = document.getElementById("cancelBtn");
+    const form = document.getElementById("driverForm");
+    const driversContainer = document.getElementById("driversContainer");
+
+    // Sa add
+    addBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+    });
+
+    // Sa cancel
+    cancelBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    form.reset();
+    });
+
+    // Submit
+    form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("driverName").value;
+    const date = document.getElementById("driverDate").value;
+    const location = document.getElementById("driverLocation").value;
+    const truck = document.getElementById("driverTruck").value;
+
+    const card = document.createElement("div");
+    card.classList.add("driver-card");
+    card.innerHTML = `
+        <p><strong>Driver:</strong> ${name}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Location:</strong> ${location}</p>
+        <p><strong>Truck Plate:</strong> ${truck}</p>
+    `;
+
+    driversContainer.appendChild(card);
+
+    form.reset();
+    modal.style.display = "none";
+    });
+</script>
+
+</html>
